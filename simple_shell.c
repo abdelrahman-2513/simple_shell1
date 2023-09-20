@@ -74,7 +74,7 @@ int main(void)
 				break;
 			}
 		}
-		command[strcspn(command, "\n")] = '\0';
+		command[str_index(command, '\n')] = '\0';
 		final_command = cpy_str(command);
 		command_execution(final_command);
 	}

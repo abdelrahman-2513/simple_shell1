@@ -11,14 +11,16 @@ int isEmpty(char *command1)
 	int i = 0;
 
 	if (command1[0] == '\0')
+	{
 		return (1);
+	}
 	else
 	{
 		while (command1[i] != '\0')
 		{
 			if (command1[i] != 32)
 				return (0);
-				i++;
+			i++;
 		}
 		return (1);
 	}
