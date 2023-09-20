@@ -42,7 +42,7 @@ void command_execution(char *comm)
 
 	char *command_path = get_path(args[0]);
 
-	_fork(command_path);
+	_fork(command_path, args);
 }
 
 /**
