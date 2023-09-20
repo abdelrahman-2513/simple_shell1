@@ -19,6 +19,7 @@ int isEmpty(char *command1);
 int str_cmp(char *str1, char *str2);
 int str_count(char *str);
 void print_env(void);
+char *get_path(char *command);
 void str_cpy(char *str1, char *str2);
 void str_cat(char *str1, char *str2);
 char *get_env(char *str);
