@@ -9,6 +9,8 @@
 
 void _fork(char *command_path, char **args)
 {
+	char *const *environ = __environ;
+
 	if (command_path != NULL)
 	{
 		pid_t child_pid;
@@ -23,7 +25,7 @@ void _fork(char *command_path, char **args)
 		else if (child_pid == 0)
 		{
 			command_path = get_path(command_path);
-			execve(command_path, args, NULL);
+			execve(command_path, args, environ);
 		}
 		else
 		{

@@ -28,8 +28,7 @@ void command_execution(char *command)
 	}
 	if (str_cmp(command, "env"))
 	{
-		print_env();
-		return;
+		_fork("/usr/bin/env", args);
 	}
 	args[arg_count] = strtok(command, " ");
 

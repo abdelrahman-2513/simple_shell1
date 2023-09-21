@@ -8,11 +8,12 @@
 
 void print_env(void)
 {
-	char **environ = __environ;
+	extern char **environ;
+	int i = 0;
 
-	while (*environ != NULL)
+	while (environ[i] != NULL)
 	{
-		write(STDOUT_FILENO, *environ, str_count(*environ));
+		write(STDOUT_FILENO, environ[i], str_count(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		environ++;
 	}
