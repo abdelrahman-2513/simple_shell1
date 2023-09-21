@@ -12,11 +12,11 @@ void _prompt(void)
 
 /**
  * command_execution - execute the given commend and check if avilable or not
- * @comm: the given commend to be checked
+ * @command: the given commend to be checked
  *
  * Return: nothing
  */
-void command_execution(char *comm)
+void command_execution(char *command)
 {
 	if (isEmpty(command))
 	{
@@ -40,7 +40,9 @@ void command_execution(char *comm)
 	}
 	args[arg_count] = NULL;
 
-	char *command_path = get_path(args[0]);
+	char *command_path = (char *)malloc(200);
+
+	command_path = command;
 
 	_fork(command_path, args);
 }

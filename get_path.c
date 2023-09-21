@@ -9,7 +9,7 @@
 
 char *get_path(char *command)
 {
-	if (command[0] == '/')
+	if (command[0] == '/' || command[0] == '.')
 	{
 		if (access(command, X_OK) == 0)
 		{
@@ -38,7 +38,6 @@ char *get_path(char *command)
 				return (command_path);
 			}
 			token = strtok(NULL, ":");
-			free(command_path);
 		}
 	}
 	return (NULL);

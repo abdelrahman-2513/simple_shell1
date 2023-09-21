@@ -18,28 +18,27 @@ void _fork(char *command_path, char **args)
 		if (child_pid < 0)
 		{
 			write(STDERR_FILENO, "Fork failed\n", 12);
-			free(command_path);
 			exit(1);
 		}
 		else if (child_pid == 0)
 		{
-			char const **environ = __environ;
+			char *const *environ = __environ;
+
+			command_path = get_path(command_path);
 
 			execve(command_path, args, environ);
 			exit(1);
 		}
 		else
 		{
-			free(*args);
 			waitpid(child_pid, &status, 0);
 		}
-		free(command_path);
 	}
 	else
 	{
 		write(STDERR_FILENO, "./hsh:", 7);
 		write(STDERR_FILENO, " 1: ", 5);
-		write(STDERR_FILENO, comm, strlen(comm));
+		write(STDERR_FILENO, command_path, str_count(command_path));
 		write(STDERR_FILENO, ": not found", 11);
 		_exit(EXIT_FAILURE);
 	}
