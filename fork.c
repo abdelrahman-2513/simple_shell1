@@ -24,7 +24,6 @@ void _fork(char *command_path, char **args)
 		{
 			command_path = get_path(command_path);
 			execve(command_path, args, NULL);
-			exit(1);
 		}
 		else
 		{
