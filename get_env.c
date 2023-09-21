@@ -10,7 +10,6 @@
 char *get_env(char *str)
 {
 	char **environ = __environ;
-	char *val =  (char *)malloc(20);
 
 	while (*environ != NULL)
 	{

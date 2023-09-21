@@ -10,6 +10,7 @@
 
 int str_index(char *str, char ch)
 {
+
 	int i = 0;
 
 	while (str[i] != '\0')
@@ -20,4 +21,5 @@ int str_index(char *str, char ch)
 		}
 		i++;
 	}
+	return (0);
 }

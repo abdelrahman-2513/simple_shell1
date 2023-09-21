@@ -18,6 +18,10 @@ void _prompt(void)
  */
 void command_execution(char *command)
 {
+	char *args[100];
+	char *command_path = (char *)malloc(200);
+	int arg_count = 0;
+
 	if (isEmpty(command))
 	{
 		return;
@@ -27,10 +31,6 @@ void command_execution(char *command)
 		print_env();
 		return;
 	}
-
-	char *args[100];
-	int arg_count = 0;
-
 	args[arg_count] = strtok(command, " ");
 
 	while (args[arg_count] != NULL)
@@ -39,8 +39,6 @@ void command_execution(char *command)
 		args[arg_count] = strtok(NULL, " ");
 	}
 	args[arg_count] = NULL;
-
-	char *command_path = (char *)malloc(200);
 
 	command_path = command;
 

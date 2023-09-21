@@ -18,16 +18,14 @@ void _fork(char *command_path, char **args)
 		if (child_pid < 0)
 		{
 			write(STDERR_FILENO, "Fork failed\n", 12);
-			exit(1);
+			return;
 		}
 		else if (child_pid == 0)
 		{
-			char *const *environ = __environ;
-
 			command_path = get_path(command_path);
 
-			execve(command_path, args, environ);
-			exit(1);
+			execve(command_path, args, NULL);
+			return;
 		}
 		else
 		{
